@@ -1,6 +1,6 @@
 import * as React from "react"
 import Svg, { SvgProps, G, Path, Defs, ClipPath } from "react-native-svg"
-const Search = (props: SvgProps) => (
+const Search = (props) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
     width={20}
