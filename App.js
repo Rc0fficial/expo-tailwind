@@ -17,6 +17,10 @@ import SearchBar from "./src/components/SearchBar";
 import Svg, { G, Path, Defs, ClipPath } from "react-native-svg";
 import Search from "./src/components/svg/Search";
 import Like from "./src/components/svg/like";
+import Magnifier from "./assets/Magnifier";
+import Calendar from "./assets/Calendar";
+import Note from "./assets/Note";
+import Profile from "./assets/Profile";
 // import Like from "./src/components/svg/like"
 
 const blurhash =
@@ -62,7 +66,8 @@ export default function App() {
     },
   ];
   return (
-    <View className=" flex-1 items-start justify-start bg-white mt-20 mx-5  ">
+    <View className="relative flex-1 items-start justify-start bg-white mt-20 mx-5  ">
+      <View className="px-5">
       <View className="flex flex-row  justify-between w-full">
         <View className="flex flex-row gap-[7px] items-center ">
           <TouchableOpacity>
@@ -84,6 +89,7 @@ export default function App() {
           </TouchableOpacity>
         </View>
       </View>
+      </View>
       <StatusBar style="auto" />
         <View className="w-full p-2 bg-[#F7F7F7]   rounded-[12px] flex flex-row items-center space-x-2 mt-[24px] pl-[34px] py-[16px]">
           <Search />
@@ -91,6 +97,7 @@ export default function App() {
         </View>
         <ScrollView>
         {psychologistData?.map((item, idx)=>(
+          <TouchableOpacity>
           <View key={idx} className="w-full bg-white rounded-[20px] mt-[24px] shadow-lg flex flex-row border border-[#D5D8DE] py-[10px] px-[10px] ">
           <View className="">
           <Image source={manImg} contentFit="cover"  />
@@ -111,9 +118,27 @@ export default function App() {
           </TouchableOpacity>
           </View>
         </View>
+        </TouchableOpacity>
         ))}
         </ScrollView>
-        <View></View>
+        <View className="w-full py-[12px] px-2 flex flex-row justify-between items-center  ">
+          <View className="flex flex-col items-center">
+            <Magnifier/>
+            <Text className="text-[#46C2DE] text-[12px] font-medium">Find a Doctor</Text>
+          </View>
+          <View className="flex flex-col items-center">
+           <Calendar/>
+            <Text className="text-[#000000] text-[12px] font-medium">Appoint..</Text>
+          </View>
+          <View className="flex flex-col items-center">
+            <Note/>
+            <Text className="text-[#000000] text-[12px] font-medium">Records</Text>
+          </View>
+          <View className="flex flex-col items-center">
+            <Profile/>
+            <Text className="text-[#000000] text-[12px] font-medium">Profile</Text>
+          </View>
+        </View>
     </View>
   );
 }
